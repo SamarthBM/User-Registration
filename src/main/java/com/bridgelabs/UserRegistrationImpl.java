@@ -53,7 +53,7 @@ public class UserRegistrationImpl {
         userDetails.setLastName(sc.next());
 
         boolean lName = userRegistration.validateFirstName(userDetails.getLastName());
-        if (lName == true)
+        if (lName)
             System.out.println("Last name is valid");
         else
             System.out.println("Last name is invalid");
