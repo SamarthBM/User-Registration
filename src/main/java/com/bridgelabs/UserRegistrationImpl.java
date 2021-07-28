@@ -1,6 +1,6 @@
 /****************************************************************
  * Purpose : Method to validate firs name, last name, mail ID,
- *           mobile number using Regex.
+ *           mobile number and password using Regex.
  * @author Samarth BM
  ***************************************************************/
 package com.bridgelabs;
@@ -58,9 +58,25 @@ public class UserRegistrationImpl {
         return matcher.matches();
     }
 
+    /*
+     * Purpose: Boolean method to validate user's password.
+     * Rule 1: Password should have minimum 8 characters.
+     *
+     * @param password: Password to validate.
+     */
+    public boolean validatePassword(String password) {
+        // Space is not used, as console wont accept space.
+        String regex = "^[a-zA-z0-9]{8,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+
+
+
         /*
          * Purpose: Boolean method to validate first name,last name,mail ID,
-         * and mobile number of user.
+         * mobile number and password of user.
          */
         public void validateUserDetails() {
             Scanner sc = new Scanner(System.in);
@@ -105,6 +121,16 @@ public class UserRegistrationImpl {
                 System.out.println("Mobile number is valid");
             else
                 System.out.println("Mobile number is invalid");
+
+            // validating Password.
+            System.out.println("Set your password");
+            userDetails.setPassword(sc.next());
+
+            boolean passwd = userRegistration.validatePassword(userDetails.getPassword());
+            if (passwd)
+                System.out.println("Password available");
+            else
+                System.out.println("Password should have minimum 8 characters");
             sc.close();
         }
     }
