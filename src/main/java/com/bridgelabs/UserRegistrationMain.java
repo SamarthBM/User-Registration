@@ -1,3 +1,8 @@
+/****************************************************************
+ * Purpose : To validate first name using Regex.
+ * @author Samarth BM
+
+ ***************************************************************/
 package com.bridgelabs;
 
 public class UserRegistrationMain {

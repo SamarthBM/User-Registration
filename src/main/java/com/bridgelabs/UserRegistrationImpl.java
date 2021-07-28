@@ -1,3 +1,8 @@
+/****************************************************************
+ * Purpose : Method to validate first name using Regex.
+ * @author Samarth BM
+
+ ***************************************************************/
 package com.bridgelabs;
 
 import java.util.Scanner;

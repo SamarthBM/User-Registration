@@ -1,3 +1,9 @@
+/****************************************************************
+ * Purpose : To create a POJO class which holds user details.
+ * @author Samarth BM
+
+ ***************************************************************/
+
 package com.bridgelabs;
 
 public class UserRegistrationDetails {
