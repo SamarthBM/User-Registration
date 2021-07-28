@@ -62,11 +62,12 @@ public class UserRegistrationImpl {
      * Purpose: Boolean method to validate user's password.
      * Rule 1: Password should have minimum 8 characters.
      * Rule 2: Password should have atleast one upper-case.
+     * Rule 3: Password should have atleast one numeric value.
      *
      * @param password: Password to validate.
      */
     public boolean validatePassword(String password) {
-        String regex =("^(?=.*[a-z])(?=.*[A-Z]).{8,}$");
+        String regex =("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$");
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
@@ -129,7 +130,7 @@ public class UserRegistrationImpl {
                 System.out.println("Password available");
             else
                 System.out.println("Password should have minimum 8 characters " +
-                        "and one upper-case");
+                        ",one upper-case and one numeric value");
             sc.close();
         }
     }
