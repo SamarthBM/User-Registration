@@ -1,5 +1,5 @@
 /****************************************************************
- * Purpose : To validate user details using Regex.
+ * Purpose : To validate all email samples using Regex.
  * @author Samarth BM
 
  ***************************************************************/
