@@ -63,75 +63,76 @@ public class UserRegistrationImpl {
      * Rule 1: Password should have minimum 8 characters.
      * Rule 2: Password should have atleast one upper-case.
      * Rule 3: Password should have atleast one numeric value.
+     * Rule 4: Password should have only one special character.
      *
      * @param password: Password to validate.
      */
     public boolean validatePassword(String password) {
-        String regex =("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$");
+        String regex = ("^(?=.*[0-9])(?=[^@#$%^&+=]*[@#$%^&+=][^@#$%^&+=]*$)(?=.*[a-z])(?=.*[A-Z]).{8,}$");
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
 
-        /*
-         * Purpose: Boolean method to validate first name,last name,mail ID,
-         * mobile number and password of user.
-         */
-        public void validateUserDetails() {
-            Scanner sc = new Scanner(System.in);
-            UserRegistrationDetails userDetails = new UserRegistrationDetails();
-            UserRegistrationImpl userRegistration = new UserRegistrationImpl();
+    /*
+     * Purpose: Boolean method to validate first name,last name,mail ID,
+     * mobile number and password of user.
+     */
+    public void validateUserDetails() {
+        Scanner sc = new Scanner(System.in);
+        UserRegistrationDetails userDetails = new UserRegistrationDetails();
+        UserRegistrationImpl userRegistration = new UserRegistrationImpl();
 
-            // validating first name.
-            System.out.println("Enter your first name");
-            userDetails.setFirstName(sc.next());
-            boolean fName = userRegistration.validateName(userDetails.getFirstName());
-            if (fName)
-                System.out.println("First name is valid");
-            else
-                System.out.println("First name is invalid");
+        // validating first name.
+        System.out.println("Enter your first name");
+        userDetails.setFirstName(sc.next());
+        boolean fName = userRegistration.validateName(userDetails.getFirstName());
+        if (fName)
+            System.out.println("First name is valid");
+        else
+            System.out.println("First name is invalid");
 
-            // validating last name.
-            System.out.println("Enter your last name");
-            userDetails.setLastName(sc.next());
+        // validating last name.
+        System.out.println("Enter your last name");
+        userDetails.setLastName(sc.next());
 
-            boolean lName = userRegistration.validateName(userDetails.getLastName());
-            if (lName)
-                System.out.println("Last name is valid");
-            else
-                System.out.println("Last name is invalid");
+        boolean lName = userRegistration.validateName(userDetails.getLastName());
+        if (lName)
+            System.out.println("Last name is valid");
+        else
+            System.out.println("Last name is invalid");
 
-            // validating Email.
-            System.out.println("Enter your mail");
-            userDetails.setMail(sc.next());
+        // validating Email.
+        System.out.println("Enter your mail");
+        userDetails.setMail(sc.next());
 
-            boolean mail = userRegistration.validateEmail(userDetails.getMail());
-            if (mail)
-                System.out.println("Entered mail is valid");
-            else
-                System.out.println("Entered mail is invalid");
+        boolean mail = userRegistration.validateEmail(userDetails.getMail());
+        if (mail)
+            System.out.println("Entered mail is valid");
+        else
+            System.out.println("Entered mail is invalid");
 
-             // validating Mobile Number.
-            System.out.println("Enter your mobile number");
-            userDetails.setMobileNumber(sc.next());
+        // validating Mobile Number.
+        System.out.println("Enter your mobile number");
+        userDetails.setMobileNumber(sc.next());
 
-            boolean mobileNum = userRegistration.validateMobileNumber(userDetails.getMobileNumber());
-            if (mobileNum)
-                System.out.println("Mobile number is valid");
-            else
-                System.out.println("Mobile number is invalid");
+        boolean mobileNum = userRegistration.validateMobileNumber(userDetails.getMobileNumber());
+        if (mobileNum)
+            System.out.println("Mobile number is valid");
+        else
+            System.out.println("Mobile number is invalid");
 
-            // validating Password.
-            System.out.println("Set your password");
-            userDetails.setPassword(sc.next());
+        // validating Password.
+        System.out.println("Set your password");
+        userDetails.setPassword(sc.next());
 
-            boolean passwd = userRegistration.validatePassword(userDetails.getPassword());
-            if (passwd)
-                System.out.println("Password available");
-            else
-                System.out.println("Password should have minimum 8 characters " +
-                        ",one upper-case and one numeric value");
-            sc.close();
-        }
+        boolean passwd = userRegistration.validatePassword(userDetails.getPassword());
+        if (passwd)
+            System.out.println("Password available");
+        else
+            System.out.println("Password should have minimum 8 characters " +
+                    ",one upper-case, one numeric value and only 1 special character");
+        sc.close();
     }
+}
 
