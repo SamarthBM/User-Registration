@@ -10,6 +10,8 @@ public class UserRegistrationDetails {
     String firstName;
     String lastName;
     String mail;
+    String mobileNumber;
+
 
     public UserRegistrationDetails() {
 
@@ -36,5 +38,14 @@ public class UserRegistrationDetails {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 }

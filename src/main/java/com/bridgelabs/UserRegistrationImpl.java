@@ -1,5 +1,6 @@
 /****************************************************************
- * Purpose : Method to validate firs name, last name and mail ID using Regex.
+ * Purpose : Method to validate firs name, last name, mail ID,
+ *           mobile number using Regex.
  * @author Samarth BM
  ***************************************************************/
 package com.bridgelabs;
@@ -43,41 +44,68 @@ public class UserRegistrationImpl {
     }
 
     /*
-     * Purpose: Boolean method to validate first name,last name and mail ID of user.
+     * Purpose: Boolean method to validate user's mobile number.
+     * Condition 1: Mobile number should start with 91
+     * Condition 2: Mobile number should have 10 numbers.
+     *
+     * @param mobileNumber: mobile number to validate.
      */
-    public void validateUserDetails() {
-        Scanner sc = new Scanner(System.in);
-        UserRegistrationDetails userDetails = new UserRegistrationDetails();
-        UserRegistrationImpl userRegistration = new UserRegistrationImpl();
-
-        // validating first name.
-        System.out.println("Enter your first name");
-        userDetails.setFirstName(sc.next());
-        boolean fName = userRegistration.validateName(userDetails.getFirstName());
-        if (fName)
-            System.out.println("First name is valid");
-        else
-            System.out.println("First name is invalid");
-
-        // validating last name.
-        System.out.println("Enter your last name");
-        userDetails.setLastName(sc.next());
-
-        boolean lName = userRegistration.validateName(userDetails.getLastName());
-        if (lName)
-            System.out.println("Last name is valid");
-        else
-            System.out.println("Last name is invalid");
-
-        // validating Email.
-        System.out.println("Enter your mail");
-        userDetails.setMail(sc.next());
-
-        boolean mail = userRegistration.validateEmail(userDetails.getMail());
-        if (mail)
-            System.out.println("Entered mail is valid");
-        else
-            System.out.println("Entered mail is invalid");
-        sc.close();
+    public boolean validateMobileNumber(String mobileNumber) {
+        // Space is not used, as console wont accept space.
+        String regex = "^(0|91)[0-9]{10}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(mobileNumber);
+        return matcher.matches();
     }
-}
+
+        /*
+         * Purpose: Boolean method to validate first name,last name,mail ID,
+         * and mobile number of user.
+         */
+        public void validateUserDetails() {
+            Scanner sc = new Scanner(System.in);
+            UserRegistrationDetails userDetails = new UserRegistrationDetails();
+            UserRegistrationImpl userRegistration = new UserRegistrationImpl();
+
+            // validating first name.
+            System.out.println("Enter your first name");
+            userDetails.setFirstName(sc.next());
+            boolean fName = userRegistration.validateName(userDetails.getFirstName());
+            if (fName)
+                System.out.println("First name is valid");
+            else
+                System.out.println("First name is invalid");
+
+            // validating last name.
+            System.out.println("Enter your last name");
+            userDetails.setLastName(sc.next());
+
+            boolean lName = userRegistration.validateName(userDetails.getLastName());
+            if (lName)
+                System.out.println("Last name is valid");
+            else
+                System.out.println("Last name is invalid");
+
+            // validating Email.
+            System.out.println("Enter your mail");
+            userDetails.setMail(sc.next());
+
+            boolean mail = userRegistration.validateEmail(userDetails.getMail());
+            if (mail)
+                System.out.println("Entered mail is valid");
+            else
+                System.out.println("Entered mail is invalid");
+
+             // validating Mobile Number.
+            System.out.println("Enter your mobile number");
+            userDetails.setMobileNumber(sc.next());
+
+            boolean mobileNum = userRegistration.validateMobileNumber(userDetails.getMobileNumber());
+            if (mobileNum)
+                System.out.println("Mobile number is valid");
+            else
+                System.out.println("Mobile number is invalid");
+            sc.close();
+        }
+    }
+
