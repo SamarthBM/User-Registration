@@ -1,5 +1,5 @@
 /****************************************************************
- * Purpose : To validate first name using Regex.
+ * Purpose : To validate user details using Regex.
  * @author Samarth BM
 
  ***************************************************************/
