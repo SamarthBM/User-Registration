@@ -15,9 +15,9 @@ public class UserRegistrationImpl {
      * Condition for regex is, first name and last name should start
      * with capital letter and name should have minimum 3 letters.
      *
-     * @param firstName: First name to validate.
+     * @param name: First and last name to validate.
      */
-    public boolean validateFirstName(String name) {
+    public boolean validateName(String name) {
         String regex = "^[A-Z]{1}[a-z]{2,}$";
         Pattern pattern = Pattern.compile(regex);
 
@@ -31,7 +31,7 @@ public class UserRegistrationImpl {
     }
 
     /*
-     * Purpose: Boolean method to validate first name. Condition for regex is, name
+     * Purpose: Boolean method to validate first and last name. Condition for regex is, name
      * should start with capital letter and name should have minimum 3 letters.
      */
     public void validateUserDetails() {
@@ -42,7 +42,7 @@ public class UserRegistrationImpl {
         // validating first name.
         System.out.println("Enter your first name");
         userDetails.setFirstName(sc.next());
-        boolean fName = userRegistration.validateFirstName(userDetails.getFirstName());
+        boolean fName = userRegistration.validateName(userDetails.getFirstName());
         if (fName)
             System.out.println("First name is valid");
         else
@@ -52,7 +52,7 @@ public class UserRegistrationImpl {
         System.out.println("Enter your last name");
         userDetails.setLastName(sc.next());
 
-        boolean lName = userRegistration.validateFirstName(userDetails.getLastName());
+        boolean lName = userRegistration.validateName(userDetails.getLastName());
         if (lName)
             System.out.println("Last name is valid");
         else
