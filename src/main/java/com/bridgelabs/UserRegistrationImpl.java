@@ -52,7 +52,7 @@ public class UserRegistrationImpl {
      */
     public boolean validateMobileNumber(String mobileNumber) {
         // Space is not used, as console wont accept space.
-        String regex = "^(0|91)[0-9]{10}$";
+        String regex = "^(91)[0-9]{10}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(mobileNumber);
         return matcher.matches();
